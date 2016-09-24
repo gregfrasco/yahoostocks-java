@@ -40,6 +40,12 @@ public class Stock {
     private double changeYearHigh; 
     private String percentChangeYearHigh;
     private double lastTradePrice;
+    private double movingAvg200day;
+    private double movingAvg200change;
+    private String movingAvg200percent;
+    private double movingAvg50change;
+    private String movingAvg50percent;
+    private String changePercent;
 
     public Stock(String symbol, double price, int volume, double pe, double eps, double week52low,
             double week52high, double daylow, double dayhigh, double movingav50day, String marketcap,
@@ -47,7 +53,8 @@ public class Stock {
             double ask, double bid,double bookValue,double change, double askSize, double bidSize, double avgVolume,
             double dividendYield, Date lastTrade, double espEstCurYear, double espEstNextYear, double espEstNextQtr,
             double floatShares, double changeYearLow, String percentChangeYearLow,int lastTradeSize,double changeYearHigh,
-            String percentChangeYearHigh,double lastTradePrice) {
+            String percentChangeYearHigh,double lastTradePrice, double movingAvg200day, double movingAvg200change,
+            String movingAvg200percent, double movingAvg50change, String movingAvg50percent,String changePercent) {
         this.symbol = symbol;
         this.price = price;
         this.volume = volume;
@@ -84,7 +91,12 @@ public class Stock {
         this.changeYearHigh = changeYearHigh;
         this.percentChangeYearHigh = percentChangeYearHigh;
         this.lastTradePrice = lastTradePrice;
-        
+        this.movingAvg200change = movingAvg200change;
+        this.movingAvg200day = movingAvg200day;
+        this.movingAvg200percent = movingAvg200percent;
+        this.movingAvg50change = movingAvg50change;
+        this.movingAvg50percent = movingAvg50percent;
+        this.changePercent = changePercent;
     }
 
     public String getExchange() {
@@ -238,5 +250,28 @@ public class Stock {
     public double getLastTradePrice() {
         return lastTradePrice;
     }
-    
+
+    public double getMovingAvg200day() {
+        return movingAvg200day;
+    }
+
+    public double getMovingAvg200change() {
+        return movingAvg200change;
+    }
+
+    public String getMovingAvg200percent() {
+        return movingAvg200percent;
+    }
+
+    public double getMovingAvg50change() {
+        return movingAvg50change;
+    }
+
+    public String getMovingAvg50percent() {
+        return movingAvg50percent;
+    }
+
+    public String getChangePercent() {
+        return changePercent;
+    }
 }

@@ -43,6 +43,12 @@ public class StockTest {
         System.out.println("Year High Change " + stock.getChangeYearHigh());
         System.out.println("Year High Change % " + stock.getPercentChangeYearHigh());
         System.out.println("Last Trade Price " + stock.getLastTradePrice());
+        System.out.println("50 day moving change " + stock.getMovingAvg50change());
+        System.out.println("50 day moving percent " + stock.getMovingAvg50percent());
+        System.out.println("200 day moving average " + stock.getMovingAvg200day());
+        System.out.println("200 day moving change " + stock.getMovingAvg200change());
+        System.out.println("200 day moving percent " + stock.getMovingAvg200percent());
+        System.out.println("Change in Percent " + stock.getChangePercent());
     }
     
 }

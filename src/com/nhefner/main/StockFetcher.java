@@ -27,7 +27,7 @@ public class StockFetcher {
         double week52high;
         double daylow;
         double dayhigh;
-        double movingav50day;
+        double movingavg50day;
         String marketcap;
         String name;
         String currency;
@@ -54,10 +54,16 @@ public class StockFetcher {
         double changeYearHigh;
         String percentChangeYearHigh;
         double lastTradePrice;
+        double movingAvg200day;
+        double movingAvg50change;
+        double movingAvg200change;
+        String movingAvg50percent;
+        String movingAvg200percent;
+        String changePercent;
         try {
 
             // Retrieve CSV File
-            URL yahoo = new URL("http://finance.yahoo.com/d/quotes.csv?s=" + symbol + "&f=l1vrejkghm3j1nc4s7poxabb4c1a5b6a2dd1e7e8e9f6j5j6k3k4k5l1");
+            URL yahoo = new URL("http://finance.yahoo.com/d/quotes.csv?s=" + symbol + "&f=l1vrejkghm3j1nc4s7poxabb4c1a5b6a2dd1e7e8e9f6j5j6k3k4k5l1m4m5m6m7m8p2");
             URLConnection connection = yahoo.openConnection();
             InputStreamReader is = new InputStreamReader(connection.getInputStream());
             BufferedReader br = new BufferedReader(is);
@@ -78,7 +84,7 @@ public class StockFetcher {
             week52high = sh.handleDouble(stockinfo[5]);
             daylow = sh.handleDouble(stockinfo[6]);
             dayhigh = sh.handleDouble(stockinfo[7]);
-            movingav50day = sh.handleDouble(stockinfo[8]);
+            movingavg50day = sh.handleDouble(stockinfo[8]);
             marketcap = stockinfo[9].replace("\"", "");
             name = stockinfo[10].replace("\"", "");
             currency = stockinfo[11].replace("\"", "");
@@ -105,6 +111,13 @@ public class StockFetcher {
             changeYearHigh = sh.handleDouble(stockinfo[32]);
             percentChangeYearHigh = stockinfo[33].replace("\"", "");
             lastTradePrice = sh.handleDouble(stockinfo[34]);
+            movingAvg200day = sh.handleDouble(stockinfo[35]);
+            movingAvg200change = sh.handleDouble(stockinfo[36]);
+            movingAvg200percent = stockinfo[37].replace("\"", "");
+            movingAvg50change = sh.handleDouble(stockinfo[38]);
+            movingAvg50percent = stockinfo[39].replace("\"", "");
+            changePercent = stockinfo[40].replace("\"", "");
+            
         } catch (IOException e) {
             Logger log = Logger.getLogger(StockFetcher.class.getName());
             log.log(Level.SEVERE, e.toString(), e);
@@ -112,12 +125,13 @@ public class StockFetcher {
         }
 
         return new Stock(sym, price, volume, pe, eps, week52low,
-                week52high, daylow, dayhigh, movingav50day, marketcap,
+                week52high, daylow, dayhigh, movingavg50day, marketcap,
                 name, currency, shortRatio, previousClose, open, exchange,
                 ask, bid, bookValue, change, askSize, bidSize, avgVolume, dividendYield,
                 lastTrade,espEstCurYear,espEstNextYear,espEstNextQtr,floatShares, 
                 changeYearLow, percentChangeYearLow, lastTradeSize, changeYearHigh,
-                percentChangeYearHigh,lastTradePrice);
+                percentChangeYearHigh,lastTradePrice,movingAvg200day,movingAvg200change,
+                movingAvg200percent,movingAvg50change,movingAvg50percent,changePercent);
 
     }
 }
