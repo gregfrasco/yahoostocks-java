@@ -1,11 +1,11 @@
-package com.nhefner.main;
+package com.gregfrasco.yahoofinanceapi;
 
 import org.junit.Test;
 
 public class StockTest {
 
     @Test
-    public static void testStock() {
+    public void testStock() {
 
         Stock stock = StockFetcher.getStock("FB");
         System.out.println("Price: " + stock.getPrice());
@@ -49,6 +49,8 @@ public class StockTest {
         System.out.println("200 day moving change " + stock.getMovingAvg200change());
         System.out.println("200 day moving percent " + stock.getMovingAvg200percent());
         System.out.println("Change in Percent " + stock.getChangePercent());
+        System.out.println("P/S " + stock.getPs());
+        System.out.println("P/B " + stock.getPb());
+        System.out.println("Dividend Pay Date " + stock.getDividendPayDate());
     }
-    
 }

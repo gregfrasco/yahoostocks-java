@@ -1,4 +1,4 @@
-package com.nhefner.main;
+package com.gregfrasco.yahoofinanceapi;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,7 +17,7 @@ public class StockFetcher {
      * @return 	a stock object containing info about the company's stock
      * @see Stock
      */
-    static Stock getStock(String symbol) {
+    public static Stock getStock(String symbol) {
         String sym = symbol.toUpperCase();
         double price;
         int volume;
@@ -60,10 +60,13 @@ public class StockFetcher {
         String movingAvg50percent;
         String movingAvg200percent;
         String changePercent;
+        double ps;
+        double pb;
+        Date dividendPayDate;
         try {
 
             // Retrieve CSV File
-            URL yahoo = new URL("http://finance.yahoo.com/d/quotes.csv?s=" + symbol + "&f=l1vrejkghm3j1nc4s7poxabb4c1a5b6a2dd1e7e8e9f6j5j6k3k4k5l1m4m5m6m7m8p2");
+            URL yahoo = new URL("http://finance.yahoo.com/d/quotes.csv?s=" + symbol + "&f=l1vrejkghm3j1nc4s7poxabb4c1a5b6a2dd1e7e8e9f6j5j6k3k4k5l1m4m5m6m7m8p2p5p6r1");
             URLConnection connection = yahoo.openConnection();
             InputStreamReader is = new InputStreamReader(connection.getInputStream());
             BufferedReader br = new BufferedReader(is);
@@ -117,6 +120,9 @@ public class StockFetcher {
             movingAvg50change = sh.handleDouble(stockinfo[38]);
             movingAvg50percent = stockinfo[39].replace("\"", "");
             changePercent = stockinfo[40].replace("\"", "");
+            ps = sh.handleDouble(stockinfo[41]);
+            pb = sh.handleDouble(stockinfo[42]);
+            dividendPayDate = sh.handleDate(stockinfo[43].replace("\"", ""));
             
         } catch (IOException e) {
             Logger log = Logger.getLogger(StockFetcher.class.getName());
@@ -131,7 +137,8 @@ public class StockFetcher {
                 lastTrade,espEstCurYear,espEstNextYear,espEstNextQtr,floatShares, 
                 changeYearLow, percentChangeYearLow, lastTradeSize, changeYearHigh,
                 percentChangeYearHigh,lastTradePrice,movingAvg200day,movingAvg200change,
-                movingAvg200percent,movingAvg50change,movingAvg50percent,changePercent);
+                movingAvg200percent,movingAvg50change,movingAvg50percent,changePercent,ps,pb,
+                dividendPayDate);
 
     }
 }

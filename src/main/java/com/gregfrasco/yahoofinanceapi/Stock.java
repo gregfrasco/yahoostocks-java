@@ -1,4 +1,4 @@
-package com.nhefner.main;
+package com.gregfrasco.yahoofinanceapi;
 
 import java.util.Date;
 
@@ -46,6 +46,9 @@ public class Stock {
     private double movingAvg50change;
     private String movingAvg50percent;
     private String changePercent;
+    private double ps;
+    private double pb;
+    private Date dividendPayDate;
 
     public Stock(String symbol, double price, int volume, double pe, double eps, double week52low,
             double week52high, double daylow, double dayhigh, double movingav50day, String marketcap,
@@ -54,7 +57,8 @@ public class Stock {
             double dividendYield, Date lastTrade, double espEstCurYear, double espEstNextYear, double espEstNextQtr,
             double floatShares, double changeYearLow, String percentChangeYearLow,int lastTradeSize,double changeYearHigh,
             String percentChangeYearHigh,double lastTradePrice, double movingAvg200day, double movingAvg200change,
-            String movingAvg200percent, double movingAvg50change, String movingAvg50percent,String changePercent) {
+            String movingAvg200percent, double movingAvg50change, String movingAvg50percent,String changePercent, double ps,
+            double pb, Date dividendPayDate) {
         this.symbol = symbol;
         this.price = price;
         this.volume = volume;
@@ -97,6 +101,8 @@ public class Stock {
         this.movingAvg50change = movingAvg50change;
         this.movingAvg50percent = movingAvg50percent;
         this.changePercent = changePercent;
+        this.ps = ps;
+        this.pb = pb;
     }
 
     public String getExchange() {
@@ -274,4 +280,17 @@ public class Stock {
     public String getChangePercent() {
         return changePercent;
     }
+
+    public double getPs() {
+        return ps;
+    }
+
+    public double getPb() {
+        return pb;
+    }
+
+    public Date getDividendPayDate() {
+        return dividendPayDate;
+    }
+    
 }

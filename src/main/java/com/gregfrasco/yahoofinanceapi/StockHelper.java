@@ -1,4 +1,4 @@
-package com.nhefner.main;
+package com.gregfrasco.yahoofinanceapi;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
