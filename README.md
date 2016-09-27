@@ -49,7 +49,6 @@ To test the library, run StockTest.java as a jUnit Test.
 
 ## Compatibility
 
-* Open jdk 6
 * Open jdk 7
 * Oracle jdk 7
 * Oracle jdk 8
