@@ -7,7 +7,7 @@ public class StockTest {
     @Test
     public void testStock() {
 
-        Stock stock = StockFetcher.getStock("FB");
+        Stock stock = StockFetcher.getStock("GE");
         System.out.println("Price: " + stock.getPrice());
         System.out.println("Volume: " + stock.getVolume());
         System.out.println("P/E: " + stock.getPe());
@@ -52,5 +52,9 @@ public class StockTest {
         System.out.println("P/S " + stock.getPs());
         System.out.println("P/B " + stock.getPb());
         System.out.println("Dividend Pay Date " + stock.getDividendPayDate());
+        System.out.println("PEG " + stock.getPeg());
+        System.out.println("Price/EPS Estimate Current Year " + stock.getEspPriceEstimateCurentYear());
+        System.out.println("Price/EPS Estimate Next Year " + stock.getEspPriceEstimateNextYear());
+        System.out.println("Last Trade Time " + stock.getLastTradeTime());
     }
 }

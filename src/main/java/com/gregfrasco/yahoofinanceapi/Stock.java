@@ -49,6 +49,11 @@ public class Stock {
     private double ps;
     private double pb;
     private Date dividendPayDate;
+    private double peg;
+    private double espPriceEstimateCurentYear;
+    private double espPriceEstimateNextYear;
+    private Date lastTradeTime;
+           
 
     public Stock(String symbol, double price, int volume, double pe, double eps, double week52low,
             double week52high, double daylow, double dayhigh, double movingav50day, String marketcap,
@@ -58,7 +63,8 @@ public class Stock {
             double floatShares, double changeYearLow, String percentChangeYearLow,int lastTradeSize,double changeYearHigh,
             String percentChangeYearHigh,double lastTradePrice, double movingAvg200day, double movingAvg200change,
             String movingAvg200percent, double movingAvg50change, String movingAvg50percent,String changePercent, double ps,
-            double pb, Date dividendPayDate) {
+            double pb, Date dividendPayDate, double peg, double espPriceEstimateCurentYear,double espPriceEstimateNextYear,
+            Date lastTradeTime) {
         this.symbol = symbol;
         this.price = price;
         this.volume = volume;
@@ -103,6 +109,11 @@ public class Stock {
         this.changePercent = changePercent;
         this.ps = ps;
         this.pb = pb;
+        this.dividendPayDate = dividendPayDate;
+        this.peg = peg;
+        this.espPriceEstimateCurentYear = espPriceEstimateCurentYear;
+        this.espPriceEstimateNextYear = espPriceEstimateNextYear;
+        this.lastTradeTime = lastTradeTime;
     }
 
     public String getExchange() {
@@ -291,6 +302,34 @@ public class Stock {
 
     public Date getDividendPayDate() {
         return dividendPayDate;
+    }
+
+    public double getPeg() {
+        return peg;
+    }
+
+    public double getEspPriceEstimateCurentYear() {
+        return espPriceEstimateCurentYear;
+    }
+
+    public void setEspPriceEstimateCurentYear(double espPriceEstimateCurentYear) {
+        this.espPriceEstimateCurentYear = espPriceEstimateCurentYear;
+    }
+
+    public double getEspPriceEstimateNextYear() {
+        return espPriceEstimateNextYear;
+    }
+
+    public void setEspPriceEstimateNextYear(double espPriceEstimateNextYear) {
+        this.espPriceEstimateNextYear = espPriceEstimateNextYear;
+    }
+
+    public Date getLastTradeTime() {
+        return lastTradeTime;
+    }
+
+    public void setLastTradeTime(Date lastTradeTime) {
+        this.lastTradeTime = lastTradeTime;
     }
     
 }

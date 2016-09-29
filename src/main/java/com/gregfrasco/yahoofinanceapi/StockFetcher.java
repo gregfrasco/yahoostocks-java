@@ -63,10 +63,14 @@ public class StockFetcher {
         double ps;
         double pb;
         Date dividendPayDate;
+        double peg;
+        double espPriceEstimateCurentYear;
+        double espPriceEstimateNextYear;
+        Date lastTradeTime;
         try {
 
             // Retrieve CSV File
-            URL yahoo = new URL("http://finance.yahoo.com/d/quotes.csv?s=" + symbol + "&f=l1vrejkghm3j1nc4s7poxabb4c1a5b6a2dd1e7e8e9f6j5j6k3k4k5l1m4m5m6m7m8p2p5p6r1");
+            URL yahoo = new URL("http://finance.yahoo.com/d/quotes.csv?s=" + symbol + "&f=l1vrejkghm3j1nc4s7poxabb4c1a5b6a2dd1e7e8e9f6j5j6k3k4k5l1m4m5m6m7m8p2p5p6r1r5r6r7t1");
             URLConnection connection = yahoo.openConnection();
             InputStreamReader is = new InputStreamReader(connection.getInputStream());
             BufferedReader br = new BufferedReader(is);
@@ -123,6 +127,10 @@ public class StockFetcher {
             ps = sh.handleDouble(stockinfo[41]);
             pb = sh.handleDouble(stockinfo[42]);
             dividendPayDate = sh.handleDate(stockinfo[43].replace("\"", ""));
+            peg = sh.handleDouble(stockinfo[44]);
+            espPriceEstimateCurentYear = sh.handleDouble(stockinfo[45]);
+            espPriceEstimateNextYear = sh.handleDouble(stockinfo[46]);
+            lastTradeTime = sh.handleTime(stockinfo[47].replace("\"", ""));
             
         } catch (IOException e) {
             Logger log = Logger.getLogger(StockFetcher.class.getName());
@@ -138,7 +146,8 @@ public class StockFetcher {
                 changeYearLow, percentChangeYearLow, lastTradeSize, changeYearHigh,
                 percentChangeYearHigh,lastTradePrice,movingAvg200day,movingAvg200change,
                 movingAvg200percent,movingAvg50change,movingAvg50percent,changePercent,ps,pb,
-                dividendPayDate);
+                dividendPayDate, peg, espPriceEstimateCurentYear,espPriceEstimateNextYear,
+                lastTradeTime);
 
     }
 }

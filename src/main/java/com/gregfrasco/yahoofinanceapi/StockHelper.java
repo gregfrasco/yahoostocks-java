@@ -39,5 +39,14 @@ public class StockHelper {
             return null;
         }
     }
+    
+    public Date handleTime(String x) {
+        SimpleDateFormat format = new SimpleDateFormat("HH:mma");
+        try {
+            return format.parse(x);
+        } catch (ParseException ex) {
+            return null;
+        }
+    }
 
 }
