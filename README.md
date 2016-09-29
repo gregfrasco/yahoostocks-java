@@ -3,7 +3,7 @@ Java Stocks
 
 A super simple library to help you retrieve stock data using the Yahoo Finance hidden API.
 
-[![Build Status](https://travis-ci.org/gregfrasco/yahoostocks-java.svg?branch=master)](https://travis-ci.org/gregfrasco/yahoostocks-java)
+[![Build Status](https://travis-ci.org/gregfrasco/Yahoo-Finance-API.svg?branch=master)](https://travis-ci.org/gregfrasco/Yahoo-Finance-API)
 
 ## How it works
 
