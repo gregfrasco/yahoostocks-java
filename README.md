@@ -19,22 +19,30 @@ Stock facebook = StockFetcher.getStock("FB");
 
 The library currently supports the following methods:
 
+Summary
 ```java
 getPrice();
+getPriceChange();
 getVolume();
-getPe();
-getEps();
-getWeek52high();
-getWeek52low();
+getOpen();
+getPreviousClose();
+getBid();
+getAsk();
 getDaylow();
 getDayhigh();
-getMovingav50day();
-getMarketcap();
+getWeek52low();
+getWeek52high();
+one year target price
+getMarketCap();
+getPeRatio();
+getBeta();
+getDividendYield();
+```
+
+Stock Information
+```java
 getName();
 getCurrency();
-getShortRatio();
-getPreviousClose();
-getOpen();
 getExchange();
 ```
 
@@ -58,6 +66,7 @@ To test the library, run StockTest.java as a jUnit Test.
 Special Thanks To:
 
 * [erbycfischer](https://github.com/erbycfischer)
+* [gregfrasco](https://github.com/gregfrasco)
 
 ## License
 
