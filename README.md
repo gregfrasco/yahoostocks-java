@@ -19,31 +19,79 @@ Stock facebook = StockFetcher.getStock("FB");
 
 The library currently supports the following methods:
 
-Summary
+### Stock Information
+```java
+getSymbol();
+getName();
+getCurrency();
+getExchange();
+```
+
+### Pricing
 ```java
 getPrice();
 getPriceChange();
-getVolume();
+getPriceChangePercent();
 getOpen();
 getPreviousClose();
 getBid();
 getAsk();
 getDaylow();
 getDayhigh();
-getWeek52low();
-getWeek52high();
-one year target price
-getMarketCap();
-getPeRatio();
-getBeta();
-getDividendYield();
+getYearlow();
+getYearhigh();
+
+getYearLowChange();
+getYearLowPercent();
+getYearHighChange();
+getYearHighPercent();
+
+getLastTradePrice();
+getLastTradeDate();
 ```
 
-Stock Information
+### Dividends
 ```java
-getName();
-getCurrency();
-getExchange();
+getDividendYield();
+getDividendPerShare();
+getDividendPayDate();
+getExDividendPayDate();
+```
+
+### Averages
+```
+getOneYearTargetPrice();
+get50DayMovingAvg();
+get50DayMovingAvgChange();
+get50DayMovingAbgPercent();
+get200DayMovingAvg();
+get200DayMovingAvgChange();
+get200DayMovingAbgPercent();
+```
+
+### Volume
+```java
+getVolume();
+getAskSize();
+getBidSize();
+getLastTradeSize();
+getAvgDayVolume();
+```
+
+### Ratios
+```java
+getPE();
+getESP();
+getESPestCurentYear();
+getESPestNextYear();
+getESPestNextQuarter();
+getBookValue();
+getPSR(); //(P/S Ratio)
+getPBR(); //(P/B Ratio)
+getPEG();
+getPEGestCurrentYear();
+getPEGestNextYear();
+getShortRatio();
 ```
 
 ## Testing
