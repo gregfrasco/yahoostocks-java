@@ -163,11 +163,11 @@ public class Stock {
         return this.volume;
     }
 
-    public double getPe() {
+    public double getPE() {
         return this.pe;
     }
 
-    public double getEps() {
+    public double getEPS() {
         return this.eps;
     }
 
@@ -187,11 +187,11 @@ public class Stock {
         return this.dayhigh;
     }
 
-    public double getMovingav50day() {
+    public double get50DayMovingAvg() {
         return this.movingav50day;
     }
 
-    public String getMarketcap() {
+    public String getMarketCap() {
         return this.marketcap;
     }
 
@@ -235,15 +235,15 @@ public class Stock {
         return lastTradeDate;
     }
 
-    public double getEspEstCurrentYear() {
+    public double getESPestCurrentYear() {
         return espEstCurrentYear;
     }
 
-    public double getEspEstNextYear() {
+    public double getESPestNextYear() {
         return espEstNextYear;
     }
 
-    public double getEspEstNextQuarter() {
+    public double getESPestNextQuarter() {
         return espEstNextQuarter;
     }
 
@@ -267,10 +267,6 @@ public class Stock {
         return yearHighChange;
     }
 
-    public void setChangeYearHigh(double changeYearHigh) {
-        this.yearHighChange = changeYearHigh;
-    }
-
     public String getYearHighChangePercent() {
         return yearHighChangePercent;
     }
@@ -283,23 +279,23 @@ public class Stock {
         return lastTradePrice;
     }
 
-    public double getMovingAvg200day() {
+    public double get200DayMovingAvg() {
         return movingAvg200day;
     }
 
-    public double getMovingAvg200change() {
+    public double get200DayMovingAvgChange() {
         return movingAvg200change;
     }
 
-    public String getMovingAvg200percent() {
+    public String get200DayMovingAvgPercent() {
         return movingAvg200percent;
     }
 
-    public double getMovingAvg50change() {
+    public double get50DayMovingAvgChange() {
         return movingAvg50change;
     }
 
-    public String getMovingAvg50percent() {
+    public String get50DayMovingAvgPercent() {
         return movingAvg50percent;
     }
 
@@ -307,11 +303,11 @@ public class Stock {
         return priceChangePercent;
     }
 
-    public double getPs() {
+    public double getPSR() {
         return ps;
     }
 
-    public double getPb() {
+    public double getPBR() {
         return pb;
     }
 
@@ -319,24 +315,16 @@ public class Stock {
         return dividendPayDate;
     }
 
-    public double getPeg() {
+    public double getPEG() {
         return peg;
     }
 
-    public double getEspPriceEstimateCurentYear() {
+    public double getPEGestCurentYear() {
         return pegEstCurrentYear;
     }
 
-    public void setEspPriceEstimateCurentYear(double espPriceEstimateCurentYear) {
-        this.pegEstCurrentYear = espPriceEstimateCurentYear;
-    }
-
-    public double getEspPriceEstimateNextYear() {
+    public double getPEGestNextYear() {
         return pegEstNextYear;
-    }
-
-    public void setEspPriceEstimateNextYear(double espPriceEstimateNextYear) {
-        this.pegEstNextYear = espPriceEstimateNextYear;
     }
 
     public Date getLastTradeTime() {
