@@ -47,6 +47,7 @@ getYearHighPercent();
 getYearHighChangePercent();
 
 getLastTradePrice();
+getLastTradeTime();
 getLastTradeDate();
 ```
 
@@ -76,6 +77,8 @@ getAskSize();
 getBidSize();
 getLastTradeSize();
 getAvgDayVolume();
+getMarketCap();
+getFloatShares();
 ```
 
 ### Ratios
