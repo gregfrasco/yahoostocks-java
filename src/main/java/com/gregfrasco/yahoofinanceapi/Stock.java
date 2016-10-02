@@ -5,10 +5,10 @@ import java.util.Date;
 public class Stock {
 
     //Stock Infotmation
-    private String symbol;
-    private String name;
-    private String currency;
-    private String exchange;
+    private final String symbol;
+    private final String name;
+    private final String currency;
+    private final String exchange;
     
     //Pricing
     private double price;
@@ -29,7 +29,6 @@ public class Stock {
     private double yearHighChangePercent;
     
     private double lastTradePrice;
-    private Date lastTradeTime;
     private Date lastTradeDate;
     
     //Dividends
@@ -79,7 +78,7 @@ public class Stock {
             double percentChangeYearHigh,double lastTradePrice, double movingAvg200day, double movingAvg200change,
             double movingAvg200percent, double movingAvg50change, double movingAvg50percent,double changePercent, double ps,
             double pb, Date dividendPayDate, double peg, double espPriceEstimateCurentYear,double espPriceEstimateNextYear,
-            Date lastTradeTime,double dividendPerShare,Date exDividendPayDate) {
+            double dividendPerShare,Date exDividendPayDate) {
         this.symbol = symbol;
         this.price = price;
         this.volume = volume;
@@ -128,7 +127,6 @@ public class Stock {
         this.peg = peg;
         this.pegEstCurrentYear = espPriceEstimateCurentYear;
         this.pegEstNextYear = espPriceEstimateNextYear;
-        this.lastTradeTime = lastTradeTime;
         this.dividendPerShare = dividendPerShare;
         this.exDividendPayDate = exDividendPayDate;
     }
@@ -323,10 +321,6 @@ public class Stock {
 
     public double getPEGestNextYear() {
         return pegEstNextYear;
-    }
-
-    public Date getLastTradeTime() {
-        return lastTradeTime;
     }
 
     public double getDividendPerShare() {

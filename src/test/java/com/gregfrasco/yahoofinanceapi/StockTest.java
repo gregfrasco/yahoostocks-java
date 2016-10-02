@@ -55,7 +55,6 @@ public class StockTest {
         System.out.println("PEG " + stock.getPEG());
         System.out.println("Price/EPS Estimate Current Year " + stock.getPEGestCurentYear());
         System.out.println("Price/EPS Estimate Next Year " + stock.getPEGestNextYear());
-        System.out.println("Last Trade Time " + stock.getLastTradeTime());
         System.out.println("Dividend Per Share " + stock.getDividendPerShare());
         System.out.println("Ex Dividend Pay Date " + stock.getExDividendPayDate());
     }

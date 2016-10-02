@@ -61,5 +61,15 @@ public class StockHelper {
             return 0;
         }
     }
+    
+    public Date handleDateTime(String x){
+        x = x.replaceAll("\"", "");
+        SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy HH:mma");
+        try {
+            return format.parse(x);
+        } catch (ParseException ex) {
+            return null;
+        }
+    }
 
 }

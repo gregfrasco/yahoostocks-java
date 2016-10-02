@@ -66,7 +66,6 @@ public class StockFetcher {
         double peg;
         double espPriceEstimateCurentYear;
         double espPriceEstimateNextYear;
-        Date lastTradeTime;
         double dividendPerShare;
         Date exDividendPayDate;
         try {
@@ -109,7 +108,7 @@ public class StockFetcher {
             bidSize = sh.handleDouble(stockInfo[21]);
             avgVolume = sh.handleDouble(stockInfo[22]);
             dividendPerShare = sh.handleDouble(stockInfo[23]);
-            lastTrade = sh.handleDate(stockInfo[24]);
+            lastTrade = sh.handleDateTime(stockInfo[24] + " " +stockInfo[47]);
             espEstCurYear = sh.handleDouble(stockInfo[25]);
             espEstNextYear = sh.handleDouble(stockInfo[26]);
             espEstNextQtr = sh.handleDouble(stockInfo[27]);
@@ -132,7 +131,6 @@ public class StockFetcher {
             peg = sh.handleDouble(stockInfo[44]);
             espPriceEstimateCurentYear = sh.handleDouble(stockInfo[45]);
             espPriceEstimateNextYear = sh.handleDouble(stockInfo[46]);
-            lastTradeTime = sh.handleTime(stockInfo[47]);
             dividendYield = sh.handleDouble(stockInfo[48]);
             exDividendPayDate = sh.handleDate(stockInfo[49]);
             
@@ -150,8 +148,7 @@ public class StockFetcher {
                 changeYearLow, percentChangeYearLow, lastTradeSize, changeYearHigh,
                 percentChangeYearHigh,lastTradePrice,movingAvg200day,movingAvg200change,
                 movingAvg200percent,movingAvg50change,movingAvg50percent,changePercent,ps,pb,
-                dividendPayDate, peg, espPriceEstimateCurentYear,espPriceEstimateNextYear,
-                lastTradeTime,dividendPerShare,exDividendPayDate);
+                dividendPayDate, peg, espPriceEstimateCurentYear,espPriceEstimateNextYear,dividendPerShare,exDividendPayDate);
 
     }
 }
