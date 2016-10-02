@@ -63,7 +63,7 @@ getExDividendPayDate();
 getOneYearTargetPrice();
 get50DayMovingAvg();
 get50DayMovingAvgChange();
-get50DayMovingAbgPercent();
+get50DayMovingAvgPercent();
 get200DayMovingAvg();
 get200DayMovingAvgChange();
 get200DayMovingAbgPercent();
