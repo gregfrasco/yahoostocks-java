@@ -4,58 +4,73 @@ import java.util.Date;
 
 public class Stock {
 
+    //Stock Infotmation
     private String symbol;
-    private double price;
-    private int volume;
-    private double pe;
-    private double eps;
-    private double week52low;
-    private double week52high;
-    private double daylow;
-    private double dayhigh;
-    private double movingav50day;
-    private String marketcap;
     private String name;
     private String currency;
-    private double shortRatio;
-    private double previousClose;
-    private double open;
     private String exchange;
+    
+    //Pricing
+    private double price;
+    private double priceChange;
+    private String priceChangePercent;
+    private double open;
+    private double previousClose;
     private double ask;
     private double bid;
-    private double bookValue;
-    private double change;
-    private double askSize;
-    private double bidSize;
-    private double avgVolume;
-    private double dividendYield;
-    private Date lastTrade;
-    private double espEstCurYear;
-    private double espEstNextYear;
-    private double espEstNextQtr;
-    private double floatShares;
-    private double changeYearLow; 
-    private String percentChangeYearLow;
-    private int lastTradeSize;
-    private double changeYearHigh; 
-    private String percentChangeYearHigh;
+    private double daylow;
+    private double dayhigh;
+    private double yearLow;
+    private double yearHigh;
+    
+    private double yearLowChange;
+    private double yearHighChange;
+    private String yearLowChangePercent;
+    private String yearHighChangePercent;
+    
     private double lastTradePrice;
+    private Date lastTradeTime;
+    private Date lastTradeDate;
+    
+    //Dividends
+    private double dividendYield;
+    //getDividendPerShare();
+    private Date dividendPayDate;
+    //getExDividendPayDate();
+    
+    //Averages
+    //getOneYearTargetPrice();
+    private double movingav50day;
+    private double movingAvg50change;
+    private String movingAvg50percent;
     private double movingAvg200day;
     private double movingAvg200change;
     private String movingAvg200percent;
-    private double movingAvg50change;
-    private String movingAvg50percent;
-    private String changePercent;
+    
+    //Volume
+    private double volume;
+    private double askSize;
+    private double bidSize;
+    private int lastTradeSize;
+    private double avgDayVolume;
+    private String marketcap;
+    private double floatShares;
+    
+    //Ratios
+    private double pe;
+    private double eps;
+    private double espEstCurrentYear;
+    private double espEstNextYear;
+    private double espEstNextQuarter;
+    private double bookValue;
     private double ps;
     private double pb;
-    private Date dividendPayDate;
     private double peg;
-    private double espPriceEstimateCurentYear;
-    private double espPriceEstimateNextYear;
-    private Date lastTradeTime;
-           
+    private double pegEstCurrentYear;
+    private double pegEstNextYear;
+    private double shortRatio; 
 
-    public Stock(String symbol, double price, int volume, double pe, double eps, double week52low,
+    public Stock(String symbol, double price, double volume, double pe, double eps, double week52low,
             double week52high, double daylow, double dayhigh, double movingav50day, String marketcap,
             String name, String currency, double shortRatio, double previousClose, double open, String exchange,
             double ask, double bid,double bookValue,double change, double askSize, double bidSize, double avgVolume,
@@ -70,8 +85,8 @@ public class Stock {
         this.volume = volume;
         this.pe = pe;
         this.eps = eps;
-        this.week52low = week52low;
-        this.week52high = week52high;
+        this.yearLow = week52low;
+        this.yearHigh = week52high;
         this.daylow = daylow;
         this.dayhigh = dayhigh;
         this.movingav50day = movingav50day;
@@ -85,34 +100,34 @@ public class Stock {
         this.ask = ask;
         this.bid = bid;
         this.bookValue = bookValue;
-        this.change = change;
+        this.priceChange = change;
         this.askSize = askSize;
         this.bidSize = bidSize;
-        this.avgVolume = avgVolume;
+        this.avgDayVolume = avgVolume;
         this.dividendYield = dividendYield;
-        this.lastTrade = lastTrade;
-        this.espEstCurYear = espEstCurYear;
+        this.lastTradeDate = lastTrade;
+        this.espEstCurrentYear = espEstCurYear;
         this.espEstNextYear = espEstNextYear;
-        this.espEstNextQtr = espEstNextQtr;
+        this.espEstNextQuarter = espEstNextQtr;
         this.floatShares = floatShares;
-        this.changeYearLow = changeYearLow;
-        this.percentChangeYearLow = percentChangeYearLow;
+        this.yearLowChange = changeYearLow;
+        this.yearLowChangePercent = percentChangeYearLow;
         this.lastTradeSize = lastTradeSize;
-        this.changeYearHigh = changeYearHigh;
-        this.percentChangeYearHigh = percentChangeYearHigh;
+        this.yearHighChange = changeYearHigh;
+        this.yearHighChangePercent = percentChangeYearHigh;
         this.lastTradePrice = lastTradePrice;
         this.movingAvg200change = movingAvg200change;
         this.movingAvg200day = movingAvg200day;
         this.movingAvg200percent = movingAvg200percent;
         this.movingAvg50change = movingAvg50change;
         this.movingAvg50percent = movingAvg50percent;
-        this.changePercent = changePercent;
+        this.priceChangePercent = changePercent;
         this.ps = ps;
         this.pb = pb;
         this.dividendPayDate = dividendPayDate;
         this.peg = peg;
-        this.espPriceEstimateCurentYear = espPriceEstimateCurentYear;
-        this.espPriceEstimateNextYear = espPriceEstimateNextYear;
+        this.pegEstCurrentYear = espPriceEstimateCurentYear;
+        this.pegEstNextYear = espPriceEstimateNextYear;
         this.lastTradeTime = lastTradeTime;
     }
 
@@ -144,7 +159,7 @@ public class Stock {
         return this.price;
     }
 
-    public int getVolume() {
+    public double getVolume() {
         return this.volume;
     }
 
@@ -156,12 +171,12 @@ public class Stock {
         return this.eps;
     }
 
-    public double getWeek52low() {
-        return this.week52low;
+    public double getYearLow() {
+        return this.yearLow;
     }
 
-    public double getWeek52high() {
-        return this.week52high;
+    public double getYearHigh() {
+        return this.yearHigh;
     }
 
     public double getDaylow() {
@@ -196,8 +211,8 @@ public class Stock {
         return bookValue;
     }
 
-    public double getChange() {
-        return change;
+    public double getPriceChange() {
+        return priceChange;
     }
 
     public double getAskSize() {
@@ -208,40 +223,40 @@ public class Stock {
         return bidSize;
     }
 
-    public double getAvgVolume() {
-        return avgVolume;
+    public double getAvgDayVolume() {
+        return avgDayVolume;
     }
 
     public double getDividendYield() {
         return dividendYield;
     }
 
-    public Date getLastTrade() {
-        return lastTrade;
+    public Date getLastTradeDate() {
+        return lastTradeDate;
     }
 
-    public double getEspEstCurYear() {
-        return espEstCurYear;
+    public double getEspEstCurrentYear() {
+        return espEstCurrentYear;
     }
 
     public double getEspEstNextYear() {
         return espEstNextYear;
     }
 
-    public double getEspEstNextQtr() {
-        return espEstNextQtr;
+    public double getEspEstNextQuarter() {
+        return espEstNextQuarter;
     }
 
     public double getFloatShares() {
         return floatShares;
     }
 
-    public double getChangeYearLow() {
-        return changeYearLow;
+    public double getYearLowChange() {
+        return yearLowChange;
     }
 
-    public String getPercentChangeYearLow() {
-        return percentChangeYearLow;
+    public String getYearLowChangePercent() {
+        return yearLowChangePercent;
     }
 
     public int getLastTradeSize() {
@@ -249,19 +264,19 @@ public class Stock {
     }
 
     public double getChangeYearHigh() {
-        return changeYearHigh;
+        return yearHighChange;
     }
 
     public void setChangeYearHigh(double changeYearHigh) {
-        this.changeYearHigh = changeYearHigh;
+        this.yearHighChange = changeYearHigh;
     }
 
-    public String getPercentChangeYearHigh() {
-        return percentChangeYearHigh;
+    public String getYearHighChangePercent() {
+        return yearHighChangePercent;
     }
 
-    public void setPercentChangeYearHigh(String percentChangeYearHigh) {
-        this.percentChangeYearHigh = percentChangeYearHigh;
+    public void setYearHighChangePercent(String yearHighChangePercent) {
+        this.yearHighChangePercent = yearHighChangePercent;
     }
 
     public double getLastTradePrice() {
@@ -288,8 +303,8 @@ public class Stock {
         return movingAvg50percent;
     }
 
-    public String getChangePercent() {
-        return changePercent;
+    public String getPriceChangePercent() {
+        return priceChangePercent;
     }
 
     public double getPs() {
@@ -309,27 +324,22 @@ public class Stock {
     }
 
     public double getEspPriceEstimateCurentYear() {
-        return espPriceEstimateCurentYear;
+        return pegEstCurrentYear;
     }
 
     public void setEspPriceEstimateCurentYear(double espPriceEstimateCurentYear) {
-        this.espPriceEstimateCurentYear = espPriceEstimateCurentYear;
+        this.pegEstCurrentYear = espPriceEstimateCurentYear;
     }
 
     public double getEspPriceEstimateNextYear() {
-        return espPriceEstimateNextYear;
+        return pegEstNextYear;
     }
 
     public void setEspPriceEstimateNextYear(double espPriceEstimateNextYear) {
-        this.espPriceEstimateNextYear = espPriceEstimateNextYear;
+        this.pegEstNextYear = espPriceEstimateNextYear;
     }
 
     public Date getLastTradeTime() {
         return lastTradeTime;
-    }
-
-    public void setLastTradeTime(Date lastTradeTime) {
-        this.lastTradeTime = lastTradeTime;
-    }
-    
+    }    
 }

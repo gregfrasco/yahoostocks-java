@@ -20,7 +20,7 @@ public class StockFetcher {
     public static Stock getStock(String symbol) {
         String sym = symbol.toUpperCase();
         double price;
-        int volume;
+        double volume;
         double pe;
         double eps;
         double week52low;
