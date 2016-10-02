@@ -13,7 +13,7 @@ public class Stock {
     //Pricing
     private double price;
     private double priceChange;
-    private String priceChangePercent;
+    private double priceChangePercent;
     private double open;
     private double previousClose;
     private double ask;
@@ -25,8 +25,8 @@ public class Stock {
     
     private double yearLowChange;
     private double yearHighChange;
-    private String yearLowChangePercent;
-    private String yearHighChangePercent;
+    private double yearLowChangePercent;
+    private double yearHighChangePercent;
     
     private double lastTradePrice;
     private Date lastTradeTime;
@@ -42,10 +42,10 @@ public class Stock {
     //getOneYearTargetPrice();
     private double movingav50day;
     private double movingAvg50change;
-    private String movingAvg50percent;
+    private double movingAvg50percent;
     private double movingAvg200day;
     private double movingAvg200change;
-    private String movingAvg200percent;
+    private double movingAvg200percent;
     
     //Volume
     private double volume;
@@ -75,9 +75,9 @@ public class Stock {
             String name, String currency, double shortRatio, double previousClose, double open, String exchange,
             double ask, double bid,double bookValue,double change, double askSize, double bidSize, double avgVolume,
             double dividendYield, Date lastTrade, double espEstCurYear, double espEstNextYear, double espEstNextQtr,
-            double floatShares, double changeYearLow, String percentChangeYearLow,int lastTradeSize,double changeYearHigh,
-            String percentChangeYearHigh,double lastTradePrice, double movingAvg200day, double movingAvg200change,
-            String movingAvg200percent, double movingAvg50change, String movingAvg50percent,String changePercent, double ps,
+            double floatShares, double changeYearLow, double percentChangeYearLow,int lastTradeSize,double changeYearHigh,
+            double percentChangeYearHigh,double lastTradePrice, double movingAvg200day, double movingAvg200change,
+            double movingAvg200percent, double movingAvg50change, double movingAvg50percent,double changePercent, double ps,
             double pb, Date dividendPayDate, double peg, double espPriceEstimateCurentYear,double espPriceEstimateNextYear,
             Date lastTradeTime,double dividendPerShare,Date exDividendPayDate) {
         this.symbol = symbol;
@@ -257,7 +257,7 @@ public class Stock {
         return yearLowChange;
     }
 
-    public String getYearLowChangePercent() {
+    public double getYearLowChangePercent() {
         return yearLowChangePercent;
     }
 
@@ -269,12 +269,8 @@ public class Stock {
         return yearHighChange;
     }
 
-    public String getYearHighChangePercent() {
+    public double getYearHighChangePercent() {
         return yearHighChangePercent;
-    }
-
-    public void setYearHighChangePercent(String yearHighChangePercent) {
-        this.yearHighChangePercent = yearHighChangePercent;
     }
 
     public double getLastTradePrice() {
@@ -289,7 +285,7 @@ public class Stock {
         return movingAvg200change;
     }
 
-    public String get200DayMovingAvgPercent() {
+    public double get200DayMovingAvgPercent() {
         return movingAvg200percent;
     }
 
@@ -297,11 +293,11 @@ public class Stock {
         return movingAvg50change;
     }
 
-    public String get50DayMovingAvgPercent() {
+    public double get50DayMovingAvgPercent() {
         return movingAvg50percent;
     }
 
-    public String getPriceChangePercent() {
+    public double getPriceChangePercent() {
         return priceChangePercent;
     }
 

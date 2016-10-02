@@ -52,5 +52,14 @@ public class StockHelper {
             return null;
         }
     }
+    
+    public double handlePercent(String x){
+        x = x.replaceAll("\"", "").replaceAll("%", "");
+        try{
+            return Double.parseDouble(x) / 100;
+        } catch(Exception ex){
+            return 0;
+        }
+    }
 
 }
