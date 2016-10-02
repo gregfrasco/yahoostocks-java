@@ -34,17 +34,17 @@ getPriceChange();
 getPriceChangePercent();
 getOpen();
 getPreviousClose();
-getBid();
 getAsk();
+getBid();
 getDaylow();
 getDayhigh();
 getYearlow();
 getYearhigh();
 
 getYearLowChange();
-getYearLowPercent();
-getYearHighChange();
+getYearLowChangePercent();
 getYearHighPercent();
+getYearHighChangePercent();
 
 getLastTradePrice();
 getLastTradeDate();
