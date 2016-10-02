@@ -12,6 +12,7 @@ public class StockHelper {
     }
 
     public double handleDouble(String x) {
+        x = x.replaceAll("\"", "");
         Double y;
         if (Pattern.matches("N/A", x)) {
             y = 0.00;
@@ -22,6 +23,7 @@ public class StockHelper {
     }
 
     public int handleInt(String x) {
+        x = x.replaceAll("\"", "");
         int y;
         if (Pattern.matches("N/A", x)) {
             y = 0;
@@ -32,6 +34,7 @@ public class StockHelper {
     }
     
     public Date handleDate(String x) {
+        x = x.replaceAll("\"", "");
         SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
         try {
             return format.parse(x);
@@ -41,6 +44,7 @@ public class StockHelper {
     }
     
     public Date handleTime(String x) {
+        x = x.replaceAll("\"", "");
         SimpleDateFormat format = new SimpleDateFormat("HH:mma");
         try {
             return format.parse(x);
