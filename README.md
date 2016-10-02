@@ -60,7 +60,7 @@ getExDividendPayDate();
 ```
 
 ### Averages
-```
+```java
 getOneYearTargetPrice();
 get50DayMovingAvg();
 get50DayMovingAvgChange();

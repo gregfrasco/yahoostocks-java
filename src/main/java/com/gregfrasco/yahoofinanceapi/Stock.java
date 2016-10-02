@@ -34,9 +34,9 @@ public class Stock {
     
     //Dividends
     private double dividendYield;
-    //getDividendPerShare();
+    private double dividendPerShare;
     private Date dividendPayDate;
-    //getExDividendPayDate();
+    private Date exDividendPayDate;
     
     //Averages
     //getOneYearTargetPrice();
@@ -68,7 +68,7 @@ public class Stock {
     private double peg;
     private double pegEstCurrentYear;
     private double pegEstNextYear;
-    private double shortRatio; 
+    private double shortRatio;
 
     public Stock(String symbol, double price, double volume, double pe, double eps, double week52low,
             double week52high, double daylow, double dayhigh, double movingav50day, String marketcap,
@@ -79,7 +79,7 @@ public class Stock {
             String percentChangeYearHigh,double lastTradePrice, double movingAvg200day, double movingAvg200change,
             String movingAvg200percent, double movingAvg50change, String movingAvg50percent,String changePercent, double ps,
             double pb, Date dividendPayDate, double peg, double espPriceEstimateCurentYear,double espPriceEstimateNextYear,
-            Date lastTradeTime) {
+            Date lastTradeTime,double dividendPerShare,Date exDividendPayDate) {
         this.symbol = symbol;
         this.price = price;
         this.volume = volume;
@@ -129,6 +129,8 @@ public class Stock {
         this.pegEstCurrentYear = espPriceEstimateCurentYear;
         this.pegEstNextYear = espPriceEstimateNextYear;
         this.lastTradeTime = lastTradeTime;
+        this.dividendPerShare = dividendPerShare;
+        this.exDividendPayDate = exDividendPayDate;
     }
 
     public String getExchange() {
@@ -329,5 +331,14 @@ public class Stock {
 
     public Date getLastTradeTime() {
         return lastTradeTime;
-    }    
+    }
+
+    public double getDividendPerShare() {
+        return dividendPerShare;
+    }
+
+    public Date getExDividendPayDate() {
+        return exDividendPayDate;
+    }
+    
 }

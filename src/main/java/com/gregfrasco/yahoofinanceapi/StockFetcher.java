@@ -67,10 +67,12 @@ public class StockFetcher {
         double espPriceEstimateCurentYear;
         double espPriceEstimateNextYear;
         Date lastTradeTime;
+        double dividendPerShare;
+        Date exDividendPayDate;
         try {
 
             // Retrieve CSV File
-            URL yahoo = new URL("http://finance.yahoo.com/d/quotes.csv?s=" + symbol + "&f=l1vrejkghm3j1nc4s7poxabb4c1a5b6a2dd1e7e8e9f6j5j6k3k4k5l1m4m5m6m7m8p2p5p6r1r5r6r7t1");
+            URL yahoo = new URL("http://finance.yahoo.com/d/quotes.csv?s=" + symbol + "&f=l1vrejkghm3j1nc4s7poxabb4c1a5b6a2dd1e7e8e9f6j5j6k3k4k5l1m4m5m6m7m8p2p5p6r1r5r6r7t1yq");
             URLConnection connection = yahoo.openConnection();
             InputStreamReader is = new InputStreamReader(connection.getInputStream());
             BufferedReader br = new BufferedReader(is);
@@ -106,7 +108,7 @@ public class StockFetcher {
             askSize = sh.handleDouble(stockinfo[20]);
             bidSize = sh.handleDouble(stockinfo[21]);
             avgVolume = sh.handleDouble(stockinfo[22]);
-            dividendYield = sh.handleDouble(stockinfo[23]);
+            dividendPerShare = sh.handleDouble(stockinfo[23]);
             lastTrade = sh.handleDate(stockinfo[24].replace("\"", ""));
             espEstCurYear = sh.handleDouble(stockinfo[25]);
             espEstNextYear = sh.handleDouble(stockinfo[26]);
@@ -131,6 +133,8 @@ public class StockFetcher {
             espPriceEstimateCurentYear = sh.handleDouble(stockinfo[45]);
             espPriceEstimateNextYear = sh.handleDouble(stockinfo[46]);
             lastTradeTime = sh.handleTime(stockinfo[47].replace("\"", ""));
+            dividendYield = sh.handleDouble(stockinfo[48].replace("\"", ""));
+            exDividendPayDate = sh.handleDate(stockinfo[49].replace("\"", ""));
             
         } catch (IOException e) {
             Logger log = Logger.getLogger(StockFetcher.class.getName());
@@ -147,7 +151,7 @@ public class StockFetcher {
                 percentChangeYearHigh,lastTradePrice,movingAvg200day,movingAvg200change,
                 movingAvg200percent,movingAvg50change,movingAvg50percent,changePercent,ps,pb,
                 dividendPayDate, peg, espPriceEstimateCurentYear,espPriceEstimateNextYear,
-                lastTradeTime);
+                lastTradeTime,dividendPerShare,exDividendPayDate);
 
     }
 }
