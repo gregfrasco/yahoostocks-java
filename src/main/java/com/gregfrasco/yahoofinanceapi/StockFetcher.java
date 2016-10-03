@@ -36,10 +36,10 @@ public class StockFetcher {
             String[] fetchSymbols;
             if (symbols.length - (i * 200) < 200) {
                 //length is smaller than 200
-                fetchSymbols = Arrays.copyOfRange(symbols, i * 200, symbols.length-1);
+                fetchSymbols = Arrays.copyOfRange(symbols, i * 200, symbols.length - 1);
             } else {
                 //length is larger than 200
-                fetchSymbols = Arrays.copyOfRange(symbols, i * 200, ((i + 1) * 200)-1);
+                fetchSymbols = Arrays.copyOfRange(symbols, i * 200, ((i + 1) * 200) - 1);
             }
             BufferedReader br = getCSV(convertTocsv(fetchSymbols));
             try {
@@ -49,21 +49,19 @@ public class StockFetcher {
                     index += 1;
                 }
             } catch (IOException ex) {
-            
+
             }
         }
         return stocks;
     }
-    
+
     private static String convertTocsv(String[] list) {
-        StringBuffer stringBuffer = new StringBuffer("");
-        for (int i = 0; list != null && i < list.length; i++) {
-            stringBuffer.append(list[i]);
-            if (i < list.length - 1) {
-                stringBuffer.append(',');
-            }
+        StringBuilder sb = new StringBuilder();
+        for (String element : list) {
+            sb.append(element);
+            sb.append(",");
         }
-        return stringBuffer.toString();
+        return sb.toString();
     }
 
     private static BufferedReader getCSV(String symbols) {
@@ -187,7 +185,7 @@ public class StockFetcher {
         dividendYield = stockHelper.handleDouble(stockInfo[48]);
         exDividendPayDate = stockHelper.handleDate(stockInfo[49]);
         symbol = stockInfo[50].replaceAll("\"", "").toUpperCase();
-        
+
         return new Stock(symbol, price, volume, pe, eps, week52low,
                 week52high, daylow, dayhigh, movingavg50day, marketcap,
                 name, currency, shortRatio, previousClose, open, exchange,
