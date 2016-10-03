@@ -8,7 +8,6 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -33,16 +32,16 @@ public class StockFetcher {
         int index = 0;
         Stock[] stocks = new Stock[symbols.length];
         //yahoo api get limit is 200 stocks at one time
-        for (int i = 0; i <= symbols.length / 200; i++) {
+        for (int i = 0; i < symbols.length / 200; i++) {
             String[] fetchSymbols;
-            if (symbols.length - i * 200 < (i + 1) * 200) {
+            if (symbols.length - (i * 200) < 200) {
                 //length is smaller than 200
-                fetchSymbols = Arrays.copyOfRange(symbols, i * 200, symbols.length);
+                fetchSymbols = Arrays.copyOfRange(symbols, i * 200, symbols.length-1);
             } else {
                 //length is larger than 200
-                fetchSymbols = Arrays.copyOfRange(symbols, i * 200, (i + 1) * 200);
+                fetchSymbols = Arrays.copyOfRange(symbols, i * 200, ((i + 1) * 200)-1);
             }
-            BufferedReader br = getCSV(String.join(",", fetchSymbols));
+            BufferedReader br = getCSV(convertTocsv(fetchSymbols));
             try {
                 String line;
                 while ((line = br.readLine()) != null) {
@@ -50,10 +49,21 @@ public class StockFetcher {
                     index += 1;
                 }
             } catch (IOException ex) {
-
+            
             }
         }
         return stocks;
+    }
+    
+    private static String convertTocsv(String[] list) {
+        StringBuffer stringBuffer = new StringBuffer("");
+        for (int i = 0; list != null && i < list.length; i++) {
+            stringBuffer.append(list[i]);
+            if (i < list.length - 1) {
+                stringBuffer.append(',');
+            }
+        }
+        return stringBuffer.toString();
     }
 
     private static BufferedReader getCSV(String symbols) {
