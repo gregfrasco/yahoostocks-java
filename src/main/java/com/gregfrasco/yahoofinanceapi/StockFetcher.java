@@ -9,9 +9,9 @@ import java.net.URLConnection;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -60,18 +60,12 @@ public class StockFetcher {
     }
 
     private static String join(String[] array, String delim) {
-        Set<String> col = new HashSet<String>();
-        Collections.addAll(col,array);
-        StringBuilder sb = new StringBuilder();
-        Iterator<?> iter = col.iterator();
-        if (iter.hasNext()) {
-            sb.append(iter.next().toString());
+        StringBuilder stringBuilder = new StringBuilder();
+        for(String item: array){
+            stringBuilder.append(item).append(",");
         }
-        while (iter.hasNext()) {
-            sb.append(delim);
-            sb.append(iter.next().toString());
-        }
-        return sb.toString();
+        stringBuilder.setCharAt(stringBuilder.lastIndexOf(delim), ' ');
+        return stringBuilder.toString().trim();
     }
 
     private static BufferedReader getCSV(String symbols) {
