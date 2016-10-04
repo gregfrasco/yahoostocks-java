@@ -111,8 +111,9 @@ To test the library, run StockTest.java as a jUnit Test.
 
 ## Coming Soon
 
-* Retrieve Multiple Stocks at Once
-* More Methods
+* ~~Retrieve Multiple Stocks at Once~~
+* ~~More Methods~~
+* Stock News API
 
 ## Compatibility
 
