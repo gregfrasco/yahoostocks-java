@@ -7,7 +7,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -32,16 +36,16 @@ public class StockFetcher {
         int index = 0;
         Stock[] stocks = new Stock[symbols.length];
         //yahoo api get limit is 200 stocks at one time
-        for (int i = 0; i < symbols.length / 200; i++) {
+        for (int i = 0; i <= symbols.length / 200; i++) {
             String[] fetchSymbols;
             if (symbols.length - (i * 200) < 200) {
                 //length is smaller than 200
-                fetchSymbols = Arrays.copyOfRange(symbols, i * 200, symbols.length - 1);
+                fetchSymbols = Arrays.copyOfRange(symbols, i * 200, symbols.length);
             } else {
                 //length is larger than 200
-                fetchSymbols = Arrays.copyOfRange(symbols, i * 200, ((i + 1) * 200) - 1);
+                fetchSymbols = Arrays.copyOfRange(symbols, i * 200, ((i + 1) * 200));
             }
-            BufferedReader br = getCSV(convertTocsv(fetchSymbols));
+            BufferedReader br = getCSV(join(fetchSymbols,","));
             try {
                 String line;
                 while ((line = br.readLine()) != null) {
@@ -55,11 +59,17 @@ public class StockFetcher {
         return stocks;
     }
 
-    private static String convertTocsv(String[] list) {
+    private static String join(String[] array, String delim) {
+        Set<String> col = new HashSet<String>();
+        Collections.addAll(col,array);
         StringBuilder sb = new StringBuilder();
-        for (String element : list) {
-            sb.append(element);
-            sb.append(",");
+        Iterator<?> iter = col.iterator();
+        if (iter.hasNext()) {
+            sb.append(iter.next().toString());
+        }
+        while (iter.hasNext()) {
+            sb.append(delim);
+            sb.append(iter.next().toString());
         }
         return sb.toString();
     }
