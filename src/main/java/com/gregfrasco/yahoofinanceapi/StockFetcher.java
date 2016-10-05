@@ -90,7 +90,7 @@ public class StockFetcher {
         double daylow;
         double dayhigh;
         double movingavg50day;
-        String marketcap;
+        double marketcap;
         String name;
         String currency;
         double shortRatio;
@@ -144,7 +144,7 @@ public class StockFetcher {
         daylow = stockHelper.handleDouble(stockInfo[6]);
         dayhigh = stockHelper.handleDouble(stockInfo[7]);
         movingavg50day = stockHelper.handleDouble(stockInfo[8]);
-        marketcap = stockInfo[9].replace("\"", "");
+        marketcap = stockHelper.formatNumber(stockInfo[9]);
         name = stockInfo[10].replace("\"", "");
         currency = stockInfo[11].replace("\"", "");
         shortRatio = stockHelper.handleDouble(stockInfo[12]);

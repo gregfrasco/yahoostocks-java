@@ -52,7 +52,7 @@ public class Stock {
     private double bidSize;
     private int lastTradeSize;
     private double avgDayVolume;
-    private String marketcap;
+    private double marketcap;
     private double floatShares;
     
     //Ratios
@@ -70,7 +70,7 @@ public class Stock {
     private double shortRatio;
 
     public Stock(String symbol, double price, double volume, double pe, double eps, double week52low,
-            double week52high, double daylow, double dayhigh, double movingav50day, String marketcap,
+            double week52high, double daylow, double dayhigh, double movingav50day, double marketcap,
             String name, String currency, double shortRatio, double previousClose, double open, String exchange,
             double ask, double bid,double bookValue,double change, double askSize, double bidSize, double avgVolume,
             double dividendYield, Date lastTrade, double espEstCurYear, double espEstNextYear, double espEstNextQtr,
@@ -191,7 +191,7 @@ public class Stock {
         return this.movingav50day;
     }
 
-    public String getMarketCap() {
+    public double getMarketCap() {
         return this.marketcap;
     }
 
